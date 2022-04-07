@@ -1,0 +1,5 @@
+#detail-pane {
+  height: 250px;
+  overflow: auto;
+  display: none;
+}
