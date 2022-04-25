@@ -438,12 +438,15 @@ export const tabularDataToHTML = (tabularData) => {
   let table = '<table class="tabular-data">';
 
   // Add a header
-  table += '<tr>';
+  table += '<thead class="tabular-table-head">';
+  table += '<tr class="tabular-data-header-row">';
   for (const columnName of tabularData.columnNames) {
     table += `<th class="tabular-data-th">${columnName}</th>`;
   }
   table += '</tr>';
+  table += '</thead>';
 
+  table += '<tbody class="tabular-data-body">';
   const data = tabularData.getDataAsTable();
   for (let rnbr = 0; rnbr < tabularData.nbrRows; rnbr++) {
     table += '<tr>';
@@ -452,6 +455,7 @@ export const tabularDataToHTML = (tabularData) => {
     }
     table += '</tr>';
   }
+  table += '</tbody>';
   table += '</table>';
 
   return table;
