@@ -35,6 +35,7 @@ const filterData = (payload) => {
   columnNameToFilter = actionData.columnNames[0];
   filterValues = [];
   filterValues.push(actionData.data[columnNameToFilter][0]);
+  console.log('filtering on ' + filterValues);
 
   embed.trigger(HostEvent.UpdateRuntimeFilters, [{
     columnName: columnNameToFilter,
