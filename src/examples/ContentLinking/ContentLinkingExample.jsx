@@ -12,7 +12,7 @@ const embedLiveboard = () => {
   embed = new LiveboardEmbed("#embed", {
     frameParams: {},
     liveboardId: "b504e160-3025-4508-a76a-1beb1f4b5eed",
-    availableActions: ['filter-content'],
+    visibleActions: ['filter-content'],
     runtimeFilters: [{
       columnName: columnNameToFilter,
       operator: RuntimeFilterOp.EQ,
