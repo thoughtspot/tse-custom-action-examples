@@ -38,11 +38,7 @@ export const DetailPaneExample = () => {
 
   useEffect(() => {
     const embed = new SearchEmbed("#embed", {
-      frameParams: {},
-      disabledActions: [],
-      disabledActionReason: "",
-      //visibleActions: ['show-details'], /* Removes all actions if empty array */
-      hiddenActions: [],
+      visibleActions: ['show-details'], /* Removes all actions if empty array */
       answerId: "34825e54-d303-4a2e-8c70-4745a442a2bc",
     });
     embed

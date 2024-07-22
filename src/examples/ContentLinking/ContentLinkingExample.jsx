@@ -8,22 +8,25 @@ let filterValues = [''];  // Global array of filterValues, used in the runtimeFi
 
 let embed;
 
+const actionID = 'filter-content';
+
 const embedLiveboard = () => {
   embed = new LiveboardEmbed("#embed", {
-    frameParams: {},
     liveboardId: "b504e160-3025-4508-a76a-1beb1f4b5eed",
-    visibleActions: ['filter-content'],
+    visibleActions: [actionID],
+    /*
     runtimeFilters: [{
       columnName: columnNameToFilter,
       operator: RuntimeFilterOp.EQ,
       values: filterValues
     }],
+     */
   });
 
   embed
     .on(EmbedEvent.CustomAction, (payload) => {
       // The id is defined when creating the Custom Action in ThoughtSpot. Checking id attribute allows correct routing of multiple Custom Actions
-      if (payload.id === 'filter-content') {
+      if (payload.id === actionID || payload.data.id === actionID) {
         filterData(payload);
       }
     })

@@ -37,17 +37,20 @@ export const ShowDetailsExample = () => {
     showDataElement.style.display = 'none';  // hide the box.
   }
 
+  const actionID = 'show-details';
+
   useEffect(() => {
     const embed = new LiveboardEmbed("#embed", {
-      frameParams: {},
       liveboardId: "e40c0727-01e6-49db-bb2f-5aa19661477b",
       vizId: "8d2e93ad-cae8-4c8e-a364-e7966a69a41e",
-      visibleActions: ['show-details']
+      visibleActions: [actionID]
     });
 
     embed
     .on(EmbedEvent.CustomAction, payload => {
-      if (payload.id === 'show-details') {
+      console.log('custom action: ', payload);
+      if (payload.id === actionID || payload.data.id === actionID) {
+        console.log('showing details for', payload);
         showPayload(payload)
       }
     })
